@@ -20,18 +20,18 @@ async function fetchAndDisplayTodoDetails() {
     todos.forEach(todo => {
       const listItem = document.createElement('li');
       listItem.textContent = `${todo.name}:${todo.desc}`;
-
+      listItem.classList = 'list-group-item'
 
       if( todo.status === false ){
         // Create a delete button
         const deleteButton = document.createElement('button');
-        deleteButton.classList = 'btn btn-danger';
+        deleteButton.classList = 'btn btn-danger btn-sm float-right';
         deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', () => deleteTodo(todo._id)); // Pass the user ID to the delete function
 
         // Create a finished button
         const finishButton = document.createElement('button');
-        finishButton.classList = 'btn btn-success';
+        finishButton.classList = 'btn btn-success btn-sm float-right';
         finishButton.textContent = 'Finished';
         finishButton.addEventListener('click', () => markFinished(todo._id, todo.name, todo.desc)); // Pass the user ID to the delete function
         
@@ -43,7 +43,7 @@ async function fetchAndDisplayTodoDetails() {
 
           // Create a delete button
           const deleteButton = document.createElement('button');
-          deleteButton.classList = 'btn btn-danger';
+          deleteButton.classList = 'btn btn-danger btn-sm float-right';
           deleteButton.textContent = 'Delete';
           deleteButton.addEventListener('click', () => deleteTodo(todo._id)); // Pass the user ID to the delete function
           listItem.appendChild(deleteButton);
